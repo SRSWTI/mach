@@ -1,0 +1,8 @@
+# Simple test config
+[service]
+name = "simple-test"
+domain = "localhost"
+port = 8080
+command = "python -m http.server 8080"
+auto_tls = false
+handler = "reverse_proxy"

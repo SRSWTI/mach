@@ -1,0 +1,106 @@
+# Full-featured bodega deployment configuration
+# This demonstrates ALL available features
+#
+# TODO: Future - Additional configuration options:
+# TODO: Add canary_release section for traffic splitting
+# TODO: Implement circuit_breaker configuration
+# TODO: Add rate_limiting per IP and per user
+# TODO: Support for request_caching with Redis
+# TODO: Add firewall_rules for IP allowlist/blocklist
+# TODO: Implement request_mirroring for shadow traffic
+# TODO: Add graphql specific routing configuration
+# TODO: Support for grpc services with reflection
+# TODO: Add waf_rules for security filtering
+# TODO: Implement custom_metrics endpoints
+# TODO: Add distributed_tracing configuration
+# TODO: Support for service_mesh integration
+# TODO: Add automated_backup configuration
+# TODO: Implement blue_green deployment strategy
+
+[service]
+name = "test-full-app"
+domain = "test.example.com"
+domains = ["www.test.example.com"]
+port = 8080
+command = "python -m http.server 8080"
+working_dir = "."
+auto_tls = true
+
+# Handler type: reverse_proxy, static, or redirect
+handler = "reverse_proxy"
+
+# Load balancing with multiple upstreams
+[[service.upstreams]]
+address = "localhost:8080"
+max_requests = 100
+
+[[service.upstreams]]
+address = "localhost:8081"
+max_requests = 100
+
+load_balance = "round_robin"
+
+[service.health_check]
+path = "/health"
+interval = "10s"
+timeout = "5s"
+
+# WebSocket support
+websocket = true
+
+# Compression (zstd + gzip)
+[service.compression]
+enable = true
+formats = ["zstd", "gzip"]
+minimum_length = 512
+
+# Headers upstream (sent to backend)
+[[service.headers_up]]
+name = "X-Real-IP"
+value = "{http.request.remote}"
+
+[[service.headers_up]]
+name = "X-Request-ID"
+value = "{http.request.uuid}"
+
+# Headers downstream (sent to client)
+[[service.headers_down]]
+name = "X-Frame-Options"
+value = "DENY"
+
+[[service.headers_down]]
+name = "X-Content-Type-Options"
+value = "nosniff"
+
+# Basic authentication
+[[service.basic_auth]]
+username = "admin"
+hashed_password = "$2y$10$8QZ6UQ3vZ4Q5v6Q7v8Q9Q0.1Q2Q3Q4Q5Q6Q7Q8Q9Q0Q1Q2Q3Q4Q5Q6"
+realm = "Protected Area"
+
+# Request/Response buffering
+buffer_requests = true
+buffer_responses = true
+
+# Timeouts
+read_timeout = "30s"
+write_timeout = "30s"
+
+# Error pages
+[service.error_pages]
+"404" = "/404.html"
+"500" = "/500.html"
+
+# Access logging
+[service.logging]
+enable = true
+output = "stdout"
+format = "json"
+
+# Global settings
+[global]
+admin_addr = "localhost:2019"
+http_port = ":80"
+https_port = ":443"
+auto_https = "on"
+email = "admin@example.com"

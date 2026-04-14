@@ -1,0 +1,15 @@
+# Redirect Configuration
+# Redirect old domains or paths to new locations
+
+[service]
+name = "redirect-www"
+domain = "www.example.com"
+auto_tls = true
+handler = "redirect"
+redirect_to = "https://example.com"
+redirect_code = 301  # Permanent redirect
+
+# Alternative: Multiple domains to one
+[[service.domains]]
+"example.net"
+"example.org"

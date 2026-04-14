@@ -1,0 +1,143 @@
+# Bodega Deployment - Full Featured Configuration
+# This demonstrates ALL available features in bodega-deploy
+
+[service]
+name = "production-api"
+domain = "api.example.com"
+domains = ["www.api.example.com", "api-v2.example.com"]
+port = 8080
+command = "node server.js"
+working_dir = "/var/www/api"
+auto_tls = true
+handler = "reverse_proxy"
+
+# ============================================
+# LOAD BALANCING & UPSTREAMS
+# ============================================
+[[service.upstreams]]
+address = "localhost:8080"
+max_requests = 100
+
+[[service.upstreams]]
+address = "localhost:8081"
+max_requests = 100
+
+[[service.upstreams]]
+address = "localhost:8082"
+max_requests = 100
+
+# Load balancing policy: round_robin, least_conn, ip_hash
+load_balance = "round_robin"
+
+# ============================================
+# HEALTH CHECKS
+# ============================================
+[service.health_check]
+path = "/health"
+interval = "10s"
+timeout = "5s"
+method = "GET"
+expected = "200"
+
+# ============================================
+# WEBSOCKET SUPPORT
+# ============================================
+websocket = true  # Enable WebSocket proxying
+
+# ============================================
+# COMPRESSION
+# ============================================
+[service.compression]
+enable = true
+formats = ["zstd", "gzip"]
+minimum_length = 512
+
+# ============================================
+# HEADER MANIPULATION (Request/Upstream)
+# ============================================
+[[service.headers_up]]
+name = "X-Real-IP"
+value = "{http.request.remote}"
+
+[[service.headers_up]]
+name = "X-Forwarded-For"
+value = "{http.request.remote}"
+
+[[service.headers_up]]
+name = "X-Request-ID"
+value = "{http.request.uuid}"
+
+[[service.headers_up]]
+name = "X-Forwarded-Proto"
+value = "{http.request.scheme}"
+
+# ============================================
+# HEADER MANIPULATION (Response/Downstream)
+# ============================================
+[[service.headers_down]]
+name = "X-Frame-Options"
+value = "DENY"
+
+[[service.headers_down]]
+name = "X-Content-Type-Options"
+value = "nosniff"
+
+[[service.headers_down]]
+name = "X-XSS-Protection"
+value = "1; mode=block"
+
+[[service.headers_down]]
+name = "Strict-Transport-Security"
+value = "max-age=31536000; includeSubDomains"
+
+[[service.headers_down]]
+name = "Cache-Control"
+value = "no-cache, no-store, must-revalidate"
+
+# ============================================
+# BASIC AUTHENTICATION
+# ============================================
+[[service.basic_auth]]
+username = "admin"
+hashed_password = "$2y$10$8QZ6UQ3vZ4Q5v6Q7v8Q9Q0.1Q2Q3Q4Q5Q6Q7Q8Q9Q0Q1Q2Q3Q4Q5Q6"
+realm = "Admin Area"
+
+# ============================================
+# REQUEST/RESPONSE BUFFERING
+# ============================================
+buffer_requests = true
+buffer_responses = true
+
+# ============================================
+# TIMEOUTS
+# ============================================
+read_timeout = "30s"
+write_timeout = "30s"
+
+# ============================================
+# ERROR PAGES
+# ============================================
+[service.error_pages]
+"404" = "/errors/404.html"
+"500" = "/errors/500.html"
+"502" = "/errors/maintenance.html"
+"503" = "/errors/maintenance.html"
+
+# ============================================
+# ACCESS LOGGING
+# ============================================
+[service.logging]
+enable = true
+output = "stdout"
+format = "json"
+exclude_paths = ["/health", "/metrics"]
+
+# ============================================
+# GLOBAL SETTINGS
+# ============================================
+[global]
+admin_addr = "localhost:2019"
+http_port = ":80"
+https_port = ":443"
+auto_https = "on"
+email = "admin@example.com"

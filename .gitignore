@@ -1,0 +1,83 @@
+# Go build artifacts
+mach/build/
+mach/mach
+*.exe
+*.dll
+*.so
+*.dylib
+*.test
+*.out
+mach/vendor/
+
+# Go module cache
+mach/go.sum
+
+# Python build artifacts
+bodega/__pycache__/
+bodega/bodega_deploy/__pycache__/
+bodega/*.py[cod]
+bodega/*$py.class
+bodega/*.egg-info/
+bodega/dist/
+bodega/build/
+bodega/.eggs/
+bodega/parts/
+bodega/sdist/
+bodega/wheels/
+bodega/*.egg
+bodega/MANIFEST
+bodega/.pytest_cache/
+bodega/.mypy_cache/
+bodega/.coverage
+bodega/htmlcov/
+bodega/.tox/
+bodega/venv/
+bodega/env/
+bodega/.env
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Mach daemon data
+mach/config.json
+mach/data/
+*.log
+
+# SSL certificates (if stored locally for testing)
+*.pem
+*.key
+*.crt
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+
+# Test files
+test/
+tests/
+
+# Binary directories
+bin/
+dist/
+
+# macOS
+.AppleDouble
+.LSOverride
+
+# Thumbnails
+._*
+
+# Files that might appear in the root of a volume
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent

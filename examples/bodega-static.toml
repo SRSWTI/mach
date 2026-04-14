@@ -1,0 +1,23 @@
+# Static File Server Configuration
+# Perfect for hosting documentation, SPA builds, or assets
+
+[service]
+name = "docs-site"
+domain = "docs.example.com"
+auto_tls = true
+handler = "static"
+
+[service.static]
+root = "/var/www/docs"
+browse = false  # Disable directory listing
+index = ["index.html", "index.htm"]
+hide = [".git", ".env", "node_modules"]
+precompressed = [".br", ".gz"]
+
+[service.compression]
+enable = true
+formats = ["gzip", "zstd"]
+
+[[service.headers_down]]
+name = "Cache-Control"
+value = "public, max-age=3600"
