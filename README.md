@@ -1,6 +1,6 @@
 # mach
 
-[![Go Report Card](https://goreportcard.com/badge/github.com/srswti/mach)](https://goreportcard.com/report/github.com/srswti/mach)
+[![Go Report Card](https://goreportcard.com/badge/github.com/SRSWTI/mach)](https://goreportcard.com/report/github.com/SRSWTI/mach)
 
 The simplest way to deploy web services. Period.
 
@@ -27,7 +27,7 @@ No nginx configs. No Certbot commands. No systemd units. Just deploy.
 
 ```bash
 # Using the install script
-curl -fsSL https://raw.githubusercontent.com/srswti/mach/main/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/SRSWTI/mach/main/install.sh | bash
 ```
 
 ### Manual Installation
@@ -35,10 +35,10 @@ curl -fsSL https://raw.githubusercontent.com/srswti/mach/main/install.sh | bash
 **Install mach (Go binary):**
 ```bash
 # Using go install
-go install github.com/srswti/mach@latest
+go install github.com/SRSWTI/mach@latest
 
 # Or clone and build
-git clone https://github.com/srswti/mach
+git clone https://github.com/SRSWTI/mach
 cd mach
 ./build.sh
 ```
@@ -256,6 +256,6 @@ Apache 2.0 - See [LICENSE](LICENSE) file.
 
 ## Support
 
-- Issues: [GitHub Issues](https://github.com/srswti/mach/issues)
-- Discussions: [GitHub Discussions](https://github.com/srswti/mach/discussions)
+- Issues: [GitHub Issues](https://github.com/SRSWTI/mach/issues)
+- Discussions: [GitHub Discussions](https://github.com/SRSWTI/mach/discussions)
 

@@ -45,9 +45,9 @@ dev = [
 bodega = "bodega_deploy.cli:main"
 
 [project.urls]
-Homepage = "https://github.com/srswti/mach"
-Repository = "https://github.com/srswti/mach"
-Issues = "https://github.com/srswti/mach/issues"
+Homepage = "https://github.com/SRSWTI/mach"
+Repository = "https://github.com/SRSWTI/mach"
+Issues = "https://github.com/SRSWTI/mach/issues"
 
 [tool.setuptools.packages.find]
 where = ["."]

@@ -23,11 +23,11 @@ setup(
     name="bodega-deploy",
     version="0.1.0",
     author="Bodega Team",
-    author_email="team@srswti.com",
+    author_email="team@srswti.github.com",
     description="The simplest way to deploy anything",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/srswti/mach",
+    url="https://github.com/SRSWTI/mach",
     packages=find_packages(),
     classifiers=[
         "Development Status :: 3 - Alpha",

@@ -1,6 +1,6 @@
 # mach
 
-[![Go Report Card](https://goreportcard.com/badge/github.com/srswti/mach)](https://goreportcard.com/report/github.com/srswti/mach)
+[![Go Report Card](https://goreportcard.com/badge/github.com/SRSWTI/mach)](https://goreportcard.com/report/github.com/SRSWTI/mach)
 
 mach is the high-performance deployment engine. It provides reverse proxy, automatic TLS, and HTTP serving capabilities through a clean HTTP API.
 
@@ -8,10 +8,10 @@ mach is the high-performance deployment engine. It provides reverse proxy, autom
 
 ```bash
 # Using go install
-go install github.com/srswti/mach@latest
+go install github.com/SRSWTI/mach@latest
 
 # Or download pre-built binary
-curl -fsSL https://github.com/srswti/mach/releases/latest/download/mach-$(uname -s)-$(uname -m) -o /usr/local/bin/mach
+curl -fsSL https://github.com/SRSWTI/mach/releases/latest/download/mach-$(uname -s)-$(uname -m) -o /usr/local/bin/mach
 chmod +x /usr/local/bin/mach
 ```
 

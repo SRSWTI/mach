@@ -23,7 +23,7 @@ echo "╚═══════════════════════�
 echo ""
 
 # Configuration
-REPO="srswti/mach"
+REPO="SRSWTI/mach"
 VERSION="${VERSION:-0.1.0}"
 INSTALL_DIR="${INSTALL_DIR:-$HOME/.local/bin}"
 MACH_DIR="${MACH_DIR:-$HOME/.bodega}"

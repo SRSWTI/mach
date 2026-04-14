@@ -1,4 +1,4 @@
-module github.com/srswti/mach
+module github.com/SRSWTI/mach
 
 go 1.25.0
 
