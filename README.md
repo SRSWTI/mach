@@ -35,8 +35,8 @@ curl -fsSL https://raw.githubusercontent.com/SRSWTI/mach/main/install.sh | bash
 **Install mach (Go binary):**
 
 ```bash
-# Using go install (note the /mach/mach path for subdirectory)
-go install github.com/SRSWTI/mach/mach@latest
+# Using go install
+go install github.com/SRSWTI/mach@latest
 
 # Or clone and build
 git clone https://github.com/SRSWTI/mach
