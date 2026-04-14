@@ -7,8 +7,8 @@ mach is the high-performance deployment engine. It provides reverse proxy, autom
 ## Installation
 
 ```bash
-# Using go install
-go install github.com/SRSWTI/mach@latest
+# Using go install (note the /mach/mach path for subdirectory)
+go install github.com/SRSWTI/mach/mach@latest
 
 # Or download pre-built binary
 curl -fsSL https://github.com/SRSWTI/mach/releases/latest/download/mach-$(uname -s)-$(uname -m) -o /usr/local/bin/mach

@@ -1,6 +1,6 @@
 # mach
 
-[![Go Report Card](https://goreportcard.com/badge/github.com/SRSWTI/mach)](https://goreportcard.com/report/github.com/SRSWTI/mach)
+[Go Report Card](https://goreportcard.com/report/github.com/SRSWTI/mach)
 
 The simplest way to deploy web services. Period.
 
@@ -33,9 +33,10 @@ curl -fsSL https://raw.githubusercontent.com/SRSWTI/mach/main/install.sh | bash
 ### Manual Installation
 
 **Install mach (Go binary):**
+
 ```bash
-# Using go install
-go install github.com/SRSWTI/mach@latest
+# Using go install (note the /mach/mach path for subdirectory)
+go install github.com/SRSWTI/mach/mach@latest
 
 # Or clone and build
 git clone https://github.com/SRSWTI/mach
@@ -44,6 +45,7 @@ cd mach
 ```
 
 **Install bodega (Python CLI):**
+
 ```bash
 cd bodega
 pip install -e .
